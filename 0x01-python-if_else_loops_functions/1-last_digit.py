@@ -17,5 +17,5 @@ elif last_digit == 0:
 elif last_digit < 6:
     print(" and is less than 6", end="")
     if last_digit != 0:
-        print(" and not 0", end="")
+        print(" and not 0\n", end="")
     print()
