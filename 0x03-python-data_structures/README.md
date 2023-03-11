@@ -7,8 +7,7 @@ Write a function that prints all integers of a list.
 
 - Prototype: **def print_list_integer(my_list=[]):**
 - Format: one integer per line.
-- Invoke python's built-in `__import__()` function to 
-  import modules at runtime.
-- Assuming that the list only contains integers
-- Casting integers into strings is a NO NO
-- Invoke str.format() method to print integers
+- Invoke Python's built-in `__import__()` function to import modules at runtime.
+- Assume that the list only contains integers.
+- Do not cast integers into strings.
+- Invoke `str.format()` method to print integers.
