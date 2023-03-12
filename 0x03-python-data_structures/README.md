@@ -18,7 +18,30 @@
 #### Write a function that retrieves an element from a list like in C.
 
 Prototype: def **element_at(my_list, idx):**
-- If idx is negative, the function returns None
-- If idx is out of range (> of number of element in my_list) the function returns None
-- Not allowed to import any module
-- Not allowed to use try/except
+- If idx is negative, the function returns None.
+- If idx is out of range (> of number of element in my_list) the function returns None.
+- Not allowed to import any module.
+- Not allowed to use try/except.
+
+
+## 2. Replace element
+
+#### Write a function that replaces an element of a list at a specific position (like in C).
+
+Prototype: **def replace_in_list(my_list, idx, element):**
+- If idx is negative, the function should not modify anything, and returns the original list.
+- If idx is out of range (> of number of element in my_list), the function should not modify anything, and returns the original list.
+- Not allowed to import any module.
+- Not allowed to use try/except.
+
+
+## 3. Print a list of integers... in reverse!
+
+#### Write a function that prints all integers of a list, in reverse order.
+
+Prototype: **def print_reversed_list_integer(my_list=[]):**
+- Format: one integer per line.
+- Not allowed to import any module.
+- Assume that the list only contains integers.
+- Not allowed to cast integers into strings.
+- Use `str.format()` to print integers.
