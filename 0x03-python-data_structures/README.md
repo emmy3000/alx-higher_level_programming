@@ -3,7 +3,7 @@
 
 ## 0. Print a list of integers
 
-Write a function that prints all integers of a list.
+#### Write a function that prints all integers of a list.
 
 - Prototype: **def print_list_integer(my_list=[]):**
 - Format: one integer per line.
@@ -11,3 +11,14 @@ Write a function that prints all integers of a list.
 - Assume that the list only contains integers.
 - Do not cast integers into strings.
 - Invoke `str.format()` method to print integers.
+
+
+## 1. Secure access to an element in a list
+
+#### Write a function that retrieves an element from a list like in C.
+
+Prototype: def **element_at(my_list, idx):**
+- If idx is negative, the function returns None
+- If idx is out of range (> of number of element in my_list) the function returns None
+- Not allowed to import any module
+- Not allowed to use try/except
