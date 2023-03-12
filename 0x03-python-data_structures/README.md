@@ -56,3 +56,13 @@ Prototype: **def new_in_list(my_list, idx, element):**
 - If idx is out of range (> of number of element in my_list), the function should return a copy of the original list.
 - Not allowed to import any module.
 - Not allowed to use try/except.
+
+
+## 5. Can you C me now?
+
+#### Write a function that removes all characters c and C from a string.
+
+Prototype: **def no_c(my_string):**
+- Function should return the new string.
+- Not allowed to import any module.
+- Not allowed to use `str.replace()`.
