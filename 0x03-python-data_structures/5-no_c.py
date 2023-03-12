@@ -5,10 +5,8 @@ a string."""
 
 
 def no_c(my_string):
-    if my_string:
-        str_list = list(my_string)
-        for char in ['c', 'C']:
-            while char in str_list:
-                str_list.remove(char)
-                my_string = "".join(str_list)
-        return my_string
+    new_string = ''
+    for char in my_string:
+        if char != 'c' and char != 'C':
+            new_string += char
+    return new_string
