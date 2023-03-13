@@ -2,15 +2,15 @@
 #include <stdlib.h>
 #include <Python.h>
 
-/*
-* C function that prints some basic info about Python lists.
-*
-* The size of the list using PyList_Size
-* The amount of memory that has been allocated to the list using ((PyListObject *)p)->allocated
-* For each element in the list:
-* (1) The type of the object using item->ob_type->tp_name
-* (2) The size of the object using Py_SIZE(item)
-*
+/**
+ * C function that prints some basic info about Python lists.
+ *
+ * The size of the list using PyList_Size
+ * The amount of memory that has been allocated to the list using ((PyListObject *)p)->allocated
+ * For each element in the list:
+ * (1) The type of the object using item->ob_type->tp_name
+ * (2) The size of the object using Py_SIZE(item)
+ *
 */
 
 void print_python_list_info(PyObject *p)
