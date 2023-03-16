@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """Program that returns a key with the biggest integer value"""
 
 
