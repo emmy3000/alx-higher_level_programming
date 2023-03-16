@@ -4,7 +4,5 @@
 
 
 def print_sorted_dictionary(a_dictionary):
-    list_ord = list(a_dictionary.keys())
-    list_ord.sort()
-    for i in list_ord:
-        print("{}:{}".format(i, a_dictionary.get(i)))
+    for key in sorted(a_dictionary.keys()):
+        print("{:s}: {}".format(key, a_dictionary[key]))
