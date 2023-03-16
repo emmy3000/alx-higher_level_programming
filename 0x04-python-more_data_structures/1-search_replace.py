@@ -1,0 +1,14 @@
+#!/user/bin/python3
+
+"""Program replaces all occurrences of an element
+by another in a new list"""
+
+
+def search_replace(my_list, search, replace):
+    if my_list:
+        new_list = []
+        new_list = list(my_list)
+        for i in range(len(new_list)):
+            if new_list[i] == search:
+                new_list[i] = replace
+        return new_list
