@@ -1,6 +1,6 @@
 #!/user/bin/python3
 
-"""Program replaces all occurrences of an element
+"""Program replaces all occurrences of an element\
 by another in a new list"""
 
 
