@@ -4,11 +4,13 @@
 
 
 class Square:
-    """Represents a square"""
+    """class Square's class level"""
 
     def __init__(self, size=None):
-        """Initialize a new Square instance
+        """Initialize a size attribute.
 
-            size: size of new Square instance
+        Attributes:
+            size(int): size of new Square\
+            instance.
         """
         self.__size = size
