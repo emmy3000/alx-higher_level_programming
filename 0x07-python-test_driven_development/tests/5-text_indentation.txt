@@ -1,0 +1,72 @@
+"""
+Test text_indentation function splits a text string at specific\
+character points.
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> text_indentation()
+
+::
+
+>>> text_indentation(1)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+::
+
+>>> text_indentation()
+Traceback (most recent call last):
+...
+TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+::
+
+>>> text_indentation("James", "Bond")
+Traceback (most recent call last):
+...
+TypeError: text_indentation() takes 1 positional argument but 2 were given
+
+::
+
+>>> text_indentation(None)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+::
+
+>>> text_indentation("I like money. I mean who doesn't?")
+I like money
+<BLANKLINE>
+I mean who doesn't
+<BLANKLINE>
+?
+
+::
+
+>>> text_indentation("What in tarnations.is going on.down there?")
+What in tarnations
+<BLANKLINE>
+is going on
+<BLANKLINE>
+down there
+<BLANKLINE>
+?
+
+::
+
+>>> text_indentation("The:Great:Escape")
+The
+<BLANKLINE>
+Great
+<BLANKLINE>
+Escape
+
+::
+
+>>> text_indentation("bye.World!")
+bye,
+<BLANKLINE>
+World!
+
+"""
