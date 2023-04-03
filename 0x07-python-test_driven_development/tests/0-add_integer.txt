@@ -1,0 +1,45 @@
+"""
+Test add_integer function that returns the sum of integers.
+
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(1, 2)
+3
+
+::
+
+>>> add_integer(100, -2)
+98
+
+::
+
+>>> add_integer(2)
+100
+
+::
+
+>>> add_integer(100.3, -2)
+98
+
+::
+
+>>> add_integer("four", 5)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer or float.
+
+::
+
+>>> add_integer(2, None)
+Traceback (most recent call last):
+...
+TypeError: b must be an integer or float.
+
+::
+
+>>> add_integer(True, 3)
+Traceback (most recent call last):
+...
+TypeError: b must be an integer or float.
+
+
+"""
