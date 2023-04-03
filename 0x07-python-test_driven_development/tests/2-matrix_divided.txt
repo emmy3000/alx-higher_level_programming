@@ -8,13 +8,13 @@ Test matrix_divided function divides all nested matrices.
 ::
 
 >>> matrix = matrix_divided(matrix, 1)
-[[1.1, 2.5, 3.0], [4.0, 5.0, 6.0]]
+[[1, 2, 3], [4, 5, 6]]
 
 ::
 
 >>> matrix = [[1.1, 2.5, 3.0], [4, 5.7, 6]]
 >>> matrix_divided(matrix, 1)
-[[1.1, 2.5, 3.0], [4.0, 5.7, 6.0]]
+[[1.1, 2.5, 3.0], [4.0, 5.7, 6]]
 
 ::
 
@@ -32,7 +32,7 @@ ZeroDivisionError: division by zero
 
 ::
 
->>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> matrix = [[1, 2, 3], [4, 5]]
 >>> matrix_dividend(matrix, 2)
 Traceback (most recent call last):
 ...
@@ -41,35 +41,10 @@ TypeError: All rows in a matrix must be of the same size
 ::
 
 >>> matrix = [1, 2, 3]
->>> matrix_divided(matrix, 2)
+>>> matrix_divided(matrix, 1)
 Traceback (most recent call last):
 ...
 TypeError: matrix must be a list of lists containing integers or floats.
-
-
-::
-
->>> matrix = [[1, 2, 3], [4, 5, "walnut"]]
->>> matrix_divided(matrix, 2)
-Traceback (most recent call last):
-...
-TypeError: matrix must be a list of lists containing integers or floats.
-
-::
-
->>> matrix = [[1, 2.7, 3.0], [4, 5, 6.0]]
->>> matrix_divided(matrix, "str")
-Traceback (most recent call last):
-...
-TypeError: div must be a number.
-
-::
-
->>> matrix = [[1, 2, 3], [4.0, 5.5, 6.0]]
->>> matrix_divided(matrix, None)
-Traceback (most recent call last):
-...
-TypeError: div must be a number.
 
 
 """

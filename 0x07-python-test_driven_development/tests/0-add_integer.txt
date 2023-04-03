@@ -1,5 +1,5 @@
 """
-Test add_integer function that returns the sum of integers.
+Test add_integer function that returns the sum of integers
 
 >>> add_integer = __import__('0-add_integer').add_integer
 >>> add_integer(1, 2)
@@ -25,21 +25,28 @@ Test add_integer function that returns the sum of integers.
 >>> add_integer("four", 5)
 Traceback (most recent call last):
 ...
-TypeError: a must be an integer or float.
+TypeError: a must be integer or float
 
 ::
 
 >>> add_integer(2, None)
 Traceback (most recent call last):
 ...
-TypeError: b must be an integer or float.
+TypeError: b must be integer or float
 
 ::
 
->>> add_integer(True, 3)
+>>> add_integer(4, (3,3))
 Traceback (most recent call last):
 ...
-TypeError: b must be an integer or float.
+TypeError: b must be integer or float
+
+::
+
+>>> add_integer([], 5)
+Traceback (most recent call last):
+...
+TypeError: a must be integer or float
 
 
 """

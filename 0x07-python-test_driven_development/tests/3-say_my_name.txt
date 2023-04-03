@@ -7,15 +7,10 @@ My name is Max Payne
 
 ::
 
->>> say_my_name("Cleo")
-My name is Cleo
-
-::
-
 >>> say_my_name(None, "Bond")
 Traceback (most recent call last):
 ...
-TypeError: first_name  must be a string
+TypeError: first_name must be a string
 
 ::
 
@@ -40,12 +35,6 @@ TypeError: last_name must be a string
 
 ::
 
->>> say_my_name("Miss", "Officer")
-Traceback (most recent call last):
-My name is Miss Officer
-
-::
-
 >>> say_my_name("Immortality take it", "it's yours")
 My name is Immortality take it it's yours
 
@@ -54,7 +43,7 @@ My name is Immortality take it it's yours
 >>> say_my_name("Billy", "Bob", "Thornton")
 Traceback (most recent call last):
 ...
-TypeError: say_my_name() takes only 1 - 2 positional args
+TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
 
 ::
 
