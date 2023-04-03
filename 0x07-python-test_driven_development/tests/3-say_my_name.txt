@@ -1,0 +1,67 @@
+"""
+Test say_my_name function which prints a string.
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+>>> say_my_name("Max", "Payne")
+My name is Max Payne
+
+::
+
+>>> say_my_name("Cleo")
+My name is Cleo
+
+::
+
+>>> say_my_name(None, "Bond")
+Traceback (most recent call last):
+...
+TypeError: first_name  must be a string
+
+::
+
+>>> say_my_name("Bob", None)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+::
+
+>>> say_my_name(13, "Warror")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+::
+
+>>> say_my_name("Julia", 56)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+::
+
+>>> say_my_name("Miss", "Officer")
+Traceback (most recent call last):
+My name is Miss Officer
+
+::
+
+>>> say_my_name("Immortality take it", "it's yours")
+My name is Immortality take it it's yours
+
+::
+
+>>> say_my_name("Billy", "Bob", "Thornton")
+Traceback (most recent call last):
+...
+TypeError: say_my_name() takes only 1 - 2 positional args
+
+::
+
+>>> say_my_name("Lizzy", (1, 2))
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+
+"""
