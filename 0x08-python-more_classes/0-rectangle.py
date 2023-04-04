@@ -7,5 +7,5 @@ Module: ``0-rectangle.py``
 
 
 class Rectangle:
-    """class names Rectangle"""
+    """defining an empty class Rectangle"""
     pass
