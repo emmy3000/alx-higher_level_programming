@@ -21,11 +21,12 @@ class Rectangle:
             new instance of a class Rectangle.
         """
 
-        self.__width = width
         self.__height = height
+        self.__width = width
 
         @property
         def width(self):
+            """object method for geting width private attribute"""
             return self.__width
 
         @width.setter
@@ -39,6 +40,7 @@ class Rectangle:
 
         @property
         def height(self):
+            """object method for getting width private attribute"""
             return self.__height
 
         @height.setter
