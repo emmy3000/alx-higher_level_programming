@@ -1,13 +1,16 @@
 #!/usr/bin/python3
 
 """
-Module: ``4-rectangle.py``
+Module: ``6-rectangle.py``
 
 """
 
 
 class Rectangle:
     """class Rectangle definition"""
+
+    number_of_instances = 0
+
     def __init__(self, width=0, height=0):
         """
         Initialize a width and height attributes with
@@ -23,6 +26,7 @@ class Rectangle:
 
         self.__height = height
         self.__width = width
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -75,3 +79,8 @@ class Rectangle:
     def __repr__(self):
         """returns a formal representation of a string of the rectangle"""
         return "Rectangle({}, {})".format(self.__width, self.__height)
+
+    def __del__(self):
+        """prints a message when an instance of the Rectangle is deleted"""
+        Rectangle.number_of_instances -= 1
+        print("Bye rectangle...")
