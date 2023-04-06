@@ -8,7 +8,8 @@ Module:
 
 def text_indentation(text):
     """
-    Function prints text with 2 new lines after specific characters.
+    Function print strings that splits after specific
+    character "?", "." and ":" followed by 2 new lines
 
     Args:
         text(str): text string.
@@ -20,17 +21,15 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    word = ""
+    sentence = ""
     for char in text:
-        if char == '' and not word:
-            continue
-        elif char in ["?", ".", "?"]:
-            word += char
-            print(word)
+        if char in [".", ":", "?"]:
+            sentence += char
+            print(sentence.strip())
             print()
-            word = ""
+            sentence = ""
         else:
-            word += char
+            sentence += char
 
-    if word:
-        print(word)
+    if sentence:
+        print(sentence.strip())

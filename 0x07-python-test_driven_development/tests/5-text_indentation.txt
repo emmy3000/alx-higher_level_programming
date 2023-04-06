@@ -1,12 +1,9 @@
 """
-Test text_indentation function splits a text string at specific\
-character points.
+Test text_indentation function splits a text string at specific character points.
 
 >>> text_indentation = __import__('5-text_indentation').text_indentation
->>> text_indentation()
 
-::
-
+# Test for TypeError when text is not a string
 >>> text_indentation(1)
 Traceback (most recent call last):
 ...
@@ -14,6 +11,7 @@ TypeError: text must be a string
 
 ::
 
+# Test for TypeError when no arguments are passed to text_indentation function
 >>> text_indentation()
 Traceback (most recent call last):
 ...
@@ -21,6 +19,7 @@ TypeError: text_indentation() missing 1 required positional argument: 'text'
 
 ::
 
+# Test for TypeError when more than 1 argument is passed to text_indentation function
 >>> text_indentation("James", "Bond")
 Traceback (most recent call last):
 ...
@@ -28,6 +27,7 @@ TypeError: text_indentation() takes 1 positional argument but 2 were given
 
 ::
 
+# Test for TypeError when text argument is None
 >>> text_indentation(None)
 Traceback (most recent call last):
 ...
@@ -35,37 +35,27 @@ TypeError: text must be a string
 
 ::
 
->>> text_indentation("I like money. I mean who doesn't?")
-I like money
+# Test for splitting string at the middle after the "." character and "?" character at the end of the string
+>>> text_indentation("Yea I like money. I mean who doesn't?")
+Yea I like money.
 <BLANKLINE>
-I mean who doesn't
+I mean who doesn't?
 <BLANKLINE>
-?
 
 ::
 
->>> text_indentation("What in tarnations.is going on.down there?")
-What in tarnations
+# Test for splitting strings and creates new lines after ":" and"?" at the end of the string
+>>> text_indentation("What in tarnations:is going on down there?")
+What in tarnations:
 <BLANKLINE>
-is going on
+is going on down there?
 <BLANKLINE>
-down there
-<BLANKLINE>
-?
 
 ::
 
->>> text_indentation("The:Great:Escape")
-The
-<BLANKLINE>
-Great
-<BLANKLINE>
-Escape
-
-::
-
+# Test for splitting string producing a new line after "."
 >>> text_indentation("bye.World!")
-bye,
+bye.
 <BLANKLINE>
 World!
 
