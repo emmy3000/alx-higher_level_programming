@@ -1,0 +1,56 @@
+The ``7-base_geometry`` module
+
+This is a doctest file for the BaseGeometry class
+======================
+
+USES: ``BaseGeometry``
+================
+
+Importing function from the module:
+	>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+
+::
+
+Check for module docstring is at least one character long:
+	>>> assert len(__import__("7-base_geometry").__doc__) > 1
+
+::
+
+Check for class docstring and if it's also 1 character long:
+	>>> assert len(BaseGeometry.__doc__) > 1
+
+::
+
+Checks that it creates an instance ``BaseGeometry`` class nd calls area method on it:
+	>>> bg = BaseGeometry()
+	>>> bg.area()
+	Traceback (most recent call last)
+	...
+	Exception: area() is not implemented
+
+::
+
+Checks the ``integer_validator`` method invoked on the ``bg`` instance of ``BaseGeometry`` with valid arguments:
+	>>> bg.integer_validator("my_int", 12)
+	>>> bg.integer_validator("width", 89)
+	>>> try:
+	...     bg.integer_validator("name", "John")
+	... except TypeError as e:
+	...     print(e)
+	name must be an integer
+	>>> try:
+
+::
+
+	bg.integer_validator("age", 0)
+	... except ValueError as e:
+	...     print(e)
+	age must be greater than 0
+
+::
+
+	>>> try:
+	...     bg.integer_validator("distance", -4)
+	... except ValueError as e:
+	...     print(e)
+	distance must be greater than 0
