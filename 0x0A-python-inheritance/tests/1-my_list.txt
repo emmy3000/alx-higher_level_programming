@@ -1,0 +1,44 @@
+"""
+Module: `1-my_list`
+
+Test cases for the MyList subclass in 1-my_list
+"""
+
+# Import function from module:
+MyList = __import__('1-my_list').MyList
+
+# Check for module docstring:
+assert len(__import__('1-my_list').__doc__) > 1
+
+# Check for class docstring
+assert len(MyList.__doc__) > 1
+
+# Check for method docstring
+assert len(MyList.print_sorted.__doc__) > 1
+
+# Check that MyList can store only integers:
+my_list = MyList()
+my_list.append(1)
+my_list.append(2)
+
+try:
+    my_list.append("hello")
+except TypeError:
+    pass
+else:
+    raise AssertionError("Expected TypeError")
+
+# Check that MyList.print_sorted() can be sorted in an ascending order:
+my_list = MyList([3, 2, 1, 4])
+assert my_list.print_sorted() == None
+assert my_list == [3, 2, 1, 4]  # verify that the original list is not sorted
+assert my_list.print_sorted() == [1, 2, 3, 4]
+
+# Check that MyList only accepts list as input:
+try:
+    my_list = MyList("hello")
+except TypeError:
+    pass
+else:
+    raise AssertionError("Expected TypeError")
+
