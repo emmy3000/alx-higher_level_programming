@@ -1,75 +1,75 @@
 The ``1-my_list`` module
 ======================
 
-Using ``MyList``
+USES: ``MyList``
 ================
 
-# Importing the function from the module:
->>> MyList = __import__("1-my_list").MyList
+Importing function from the module:
+	>>> MyList = __import__("1-my_list").MyList
 
 ::
 
-# Checking for module docstring:
->>> assert len(__import__("1-my_list").__doc__) > 1
+Check for module docstring:
+	>>> assert len(__import__("1-my_list").__doc__) > 1
 
 ::
 
-# Checking for class docstring:
->>> assert len(MyList.__doc__) > 1
+Check for class docstring:
+	>>> assert len(MyList.__doc__) > 1
 
 ::
 
-# Checking for method docstring:
->>> assert len(MyList.print_sorted.__doc__) > 1
+Check for method docstring:
+	>>> assert len(MyList.print_sorted.__doc__) > 1
 
 ::
 
-# Checking that MyList inherits from list:
->>> assert issubclass(MyList, list)
+Check that MyList inherits from list:
+	>>> assert issubclass(MyList, list)
 
 ::
 
-# Checking for empty list:
->>> l = MyList()
->>> assert l.print_sorted() == []
+Check for empty list:
+	>>> l = MyList()
+	>>> assert l.print_sorted() == []
 
 ::
 
-# Checking that appending works:
->>> l.append(2)
->>> l.append(1)
->>> assert l.print_sorted() == [1, 2]
+Checking that appending works:
+	>>> l.append(2)
+	>>> l.append(1)
+	>>> assert l.print_sorted() == [1, 2]
 
 ::
 
-# Checking for list already in correct order:
->>> l = MyList([1, 2, 3])
->>> assert l.print_sorted() == [1, 2, 3]
+Checking for list already in correct order:
+	>>> l = MyList([1, 2, 3])
+	>>> assert l.print_sorted() == [1, 2, 3]
 
 ::
 
-# Checking for reversed order list:
->>> l = MyList([3, 2, 1])
->>> assert l.print_sorted() == [1, 2, 3]
+Checking for reversed order list:
+	>>> l = MyList([3, 2, 1])
+	>>> assert l.print_sorted() == [1, 2, 3]
 
 ::
 
-# Checking for one negative number:
->>> l = MyList([2, 1, -1, 5])
->>> assert l.print_sorted() == [-1, 1, 2, 5]
+Checking for one negative number:
+	>>> l = MyList([2, 1, -1, 5])
+	>>> assert l.print_sorted() == [-1, 1, 2, 5]
 
 ::
 
-# Checking for all negative numbers:
->>> l = MyList([-10, -1, -7, -2, -8])
->>> assert l.print_sorted() == [-10, -8, -7, -2, -1]
+Checking for all negative numbers:
+	>>> l = MyList([-10, -1, -7, -2, -8])
+	>>> assert l.print_sorted() == [-10, -8, -7, -2, -1]
 
 ::
 
-# Checking for too many arguments:
->>> try:
-...     l.print_sorted(1)
-... except TypeError:
-...     pass
-... else:
-...     raise AssertionError("Expected TypeError")
+Checking for too many arguments:
+	>>> try:
+	...     l.print_sorted(1)
+	... except TypeError:
+	...     pass
+	... else:
+	...     raise AssertionError("Expected TypeError")
