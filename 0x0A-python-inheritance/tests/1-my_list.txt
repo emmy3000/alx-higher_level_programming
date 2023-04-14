@@ -10,28 +10,35 @@ Importing function from the module:
 ::
 
 Check for module docstring:
-	>>> assert len(__import__("1-my_list").__doc__) > 1
+	>>> m = __import__("1-my_list").__doc__
+	>>> len(m) > 1
+	True
 
 ::
 
 Check for class docstring:
-	>>> assert len(MyList.__doc__) > 1
+	>>> c = __import__("1-my_list").MyList.__doc__
+	>>> len(c) > 1
+	True
 
 ::
 
 Check for method docstring:
-	>>> assert len(MyList.print_sorted.__doc__) > 1
+	>>> mod = __import__.("1-my_list").MyList.print_sorted.__doc__
+	>>> len(mod) > 1
+	True
 
 ::
 
 Check that MyList inherits from list:
-	>>> assert issubclass(MyList, list)
-
+	>>> issubclass(MyList, list)
+	True
 ::
 
 Check for empty list:
 	>>> l = MyList()
-	>>> assert l.print_sorted() == []
+	>>> l.print_sorted()
+	True
 
 ::
 
