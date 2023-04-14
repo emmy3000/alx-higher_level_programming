@@ -5,7 +5,7 @@ Module: 2-append_write
 """
 
 
-def write_file(filename="", text=""):
+def append_write(filename="", text=""):
     """
     function appends a string to a file encoded in UTF-8 and
     returns the number of characters
