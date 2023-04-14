@@ -7,7 +7,7 @@ Module: 0-read_file
 
 def read_file(filename=""):
     """
-    function reads a text file
+    function reads a text file encoded in UTF-8
 
     Args:
         filename(str): file to be printed
@@ -16,4 +16,4 @@ def read_file(filename=""):
     """
 
     with open(filename, 'r', encoding="utf-8") as mexFile:
-        print(mexFile.read())
+        print(mexFile.read(), end="")
