@@ -7,8 +7,12 @@ Module: 1-write_file
 
 def write_file(filename="", text=""):
     """
+<<<<<<< HEAD
     function writes text to a file encoded in UTF-8 and
     returns the number of characters
+=======
+    function writes text to a file encoded in UTF-8
+>>>>>>> 9acde752f18dd2433113461b76df55a723408bb3
 
     Args:
         filename(str): file to be written to

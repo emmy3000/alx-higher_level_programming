@@ -14,7 +14,7 @@ def write_file(filename="", text=""):
         filename(str): file to be written to
         text(str): text to be written into filename
 
-    Return: number of characters
+    Return: number of characters to be added
     """
 
     with open(filename, 'a', encoding="utf-8") as mexFile:
