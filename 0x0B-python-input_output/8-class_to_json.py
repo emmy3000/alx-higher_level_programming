@@ -23,4 +23,8 @@ def class_to_json(obj):
         A dictionary with simple data structure for JSON serialization
         of the object
     """
-    return obj.__dict__
+    if hasattr(obj, "__dict__"):
+        return obj.__dict__
+    else:
+        raise TypeError("Object of type %s is not JSON serialized"
+                % type(obj).__name__)
