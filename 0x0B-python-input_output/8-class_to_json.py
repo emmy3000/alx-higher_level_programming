@@ -23,6 +23,3 @@ def class_to_json(obj):
     """
     if hasattr(obj, "__dict__"):
         return obj.__dict__
-    else:
-        raise TypeError("Object of type %s is not JSON serialized"
-                % type(obj).__name__)
