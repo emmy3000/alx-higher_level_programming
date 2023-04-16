@@ -4,7 +4,7 @@ from models.base import Base
 
 if __name__ == "__main__":
 
-    b1 = Base()
+    b1 = Base(4444)
     print(b1.id)
 
     b2 = Base()
