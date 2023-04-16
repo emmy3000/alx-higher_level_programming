@@ -30,4 +30,4 @@ class TestBase(unittest.TestCase):
 
         b2 = Base()
         self.assertIsInstance(b2, Base)
-        self.assertEqual(b2.id, 3)
+        self.assertEqual(b2.id, 310990)
