@@ -139,5 +139,5 @@ class Rectangle(Base):
             """Returns a formal string representaion of the
             Rectangle instance"""
             return "[Rectangle] ({:d}) ({:d})/({:d}) - ({:d})/({:d})".format(
-                    self.id, self.__x, self.__y, self.__width, self.__height
+                    sielf.id, self.__x, self.__y, self.__width, self.__height
                     )

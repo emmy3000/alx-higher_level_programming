@@ -69,7 +69,7 @@ class TestRectangle_instantiation(unittest.TestCase):
     def test_width_setter(self):
         r = Rectangle(5, 7, 7, 5, 1)
         r.width = 10
-        self.assertEqual(10, r.width)
+        sielf.assertEqual(10, r.width)
 
     def test_height_getter(self):
         r = Rectangle(5, 7, 7, 5, 1)
