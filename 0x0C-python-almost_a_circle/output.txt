@@ -1,0 +1,4 @@
+  File "models/base.py", line 140
+    except IOError:
+    ^
+SyntaxError: invalid syntax
