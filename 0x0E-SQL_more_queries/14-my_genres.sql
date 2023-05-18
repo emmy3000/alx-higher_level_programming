@@ -2,8 +2,6 @@
 -- each record displays: `tv_genres.name`
 -- results are sorted in an ascending order by the genre name.
 
-USE `hbtn_0d_tvshows`;
-
 SELECT g.name
 FROM tv_shows AS s
 JOIN tv_show_genres AS sg ON s.id = sg.show_id
