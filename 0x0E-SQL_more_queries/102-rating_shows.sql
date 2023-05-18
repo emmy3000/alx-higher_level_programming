@@ -2,9 +2,9 @@
 -- each record displays: `tv_shows.title` - `rating_sum`
 -- results are sorted in descending order by rating
 
-SELECT title, SUM(rate) AS rating
+SELECT title, SUM(rate) AS rating_sum
   FROM `tv_shows` AS ts
        INNER JOIN tv_show_ratings AS rt
        ON ts.id = rt.show_id
  GROUP BY title
- ORDER BY rating DESC;
+ ORDER BY rating_sum DESC;
