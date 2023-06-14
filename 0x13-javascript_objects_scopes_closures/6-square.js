@@ -18,9 +18,12 @@ class ImprovedSquare extends Square {
   charPrint (c) {
     c = c || 'X';
 
-    const line = c.repeat(this.width);
     for (let i = 0; i < this.height; i++) {
-      console.log(line);
+      let pattern = '';
+      for (let j = 0; j < this.width; j++) {
+        pattern += c;
+      }
+      console.log(pattern);
     }
   }
 }
