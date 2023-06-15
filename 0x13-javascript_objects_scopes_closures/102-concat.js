@@ -42,8 +42,6 @@ fs.readFile(file1, 'utf8', (err, data1) => {
         console.error(`Error writing to ${destination}: ${err.message}`);
         process.exit(1);
       }
-
-      console.log(`${file1} and ${file2} have been concatenated into ${destination}`);
     });
   });
 });
