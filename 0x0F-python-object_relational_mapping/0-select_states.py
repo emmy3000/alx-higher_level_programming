@@ -57,6 +57,7 @@ def retrieve_states(mysql_user, mysql_password, database_name):
 
     return unique_states
 
+
 def main():
     """
     Entry point of the script.
