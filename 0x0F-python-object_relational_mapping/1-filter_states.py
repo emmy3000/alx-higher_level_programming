@@ -21,6 +21,7 @@ def main():
     mysql_password = sys.argv[2]
     database_name = sys.argv[3]
 
+    # Connect to MySQL server
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
@@ -29,26 +30,25 @@ def main():
         db=database_name
     )
 
+    # Create a cursor object to interact with the database
     cursor = db.cursor()
 
+    # Prepare the SQL query
     query = """
         SELECT id, name FROM states
         WHERE name LIKE 'N%'
         ORDER BY id ASC
     """
+
+    # Execute the query
     cursor.execute(query)
+
+    # Fetch all the rows and print them
     rows = cursor.fetchall()
-    unique_rows = set()
-    filtered_rows = []
-
     for row in rows:
-        if row not in unique_rows:
-            filtered_rows.append(row)
-            unique_rows.add(row)
-
-    for row in filtered_rows:
         print(row)
 
+    # Close the cursor and database connection
     cursor.close()
     db.close()
 
