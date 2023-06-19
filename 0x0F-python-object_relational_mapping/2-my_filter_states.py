@@ -23,39 +23,32 @@ def filter_states(username, password, database, state_name):
     Returns:
         None
     """
-    try:
-        connection = MySQLdb.connect(
-            host="localhost",
-            port=3306,
-            user=username,
-            passwd=password,
-            db=database
-        )
+    connection = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=username,
+        passwd=password,
+        db=database
+    )
 
-        cursor = connection.cursor()
+    cursor = connection.cursor()
 
-        sql = """
-            SELECT id, name
-            FROM states
-            WHERE name = '{}'
-            ORDER BY id ASC
-            LIMIT 1
-        """.format(state_name)
+    sql = """
+        SELECT id, name
+        FROM states
+        WHERE name = '{}'
+        ORDER BY id ASC
+        LIMIT 1
+    """.format(state_name)
 
-        cursor.execute(sql)
+    cursor.execute(sql)
 
-        rows = cursor.fetchall()
+    rows = cursor.fetchall()
 
-        for row in rows:
-            print(row)
+    for row in rows:
+        print(row)
 
-    except MySQLdb.Error as e:
-        print(f"Error connecting to MySQL server: {e}")
-        sys.exit(1)
-
-    finally:
-        if connection:
-            connection.close()
+    connection.close()
 
 
 def main():
