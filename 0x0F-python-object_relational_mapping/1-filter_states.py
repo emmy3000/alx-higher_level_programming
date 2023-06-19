@@ -1,78 +1,59 @@
 #!/usr/bin/env python3
 """
-This script lists all states with a name starting with `N`
-from the database `hbtn_0e_0_usa`.
+This script connects to a MySQL server and lists all states
+with a name starting with `N` from the specified database.
+
+Usage:
+    ./1-filter_states.py <mysql_username> \
+                         <mysql_password> \
+                         <database_name>
 """
 
-import sys
 import MySQLdb
-
-
-def list_states(username, password, database):
-    """
-    Retrieve and print states starting with 'N' (case-sensitive)
-    from the specified database.
-
-    Args:
-        username (str): The username for the MySQL server.
-        password (str): The password for the MySQL server.
-        database (str): The name of the database.
-
-    Returns:
-        None
-    """
-    try:
-        connection = MySQLdb.connect(
-            host="localhost",
-            port=3306,
-            user=username,
-            passwd=password,
-            db=database
-        )
-
-        cursor = connection.cursor()
-
-        sql = """
-            SELECT id, name
-            FROM states
-            WHERE name LIKE BINARY 'N%'
-            ORDER BY id ASC
-        """
-        cursor.execute(sql)
-
-        rows = cursor.fetchall()
-
-        # Track unique state names
-        unique_states = set()
-
-        for row in rows:
-            state_id, state_name = row
-            if state_name not in unique_states:
-                unique_states.add(state_name)
-                print(row)
-
-    except MySQLdb.Error as e:
-        print(f"Error connecting to MySQL server: {e}")
-        sys.exit(1)
-
-    finally:
-        if connection:
-            connection.close()
+import sys
 
 
 def main():
     """
-    Entry point for the script.
+    Main function of the script.
     """
-    if len(sys.argv) != 4:
-        print("Usage: python3 list_states.py <username> <password> <database>")
-        sys.exit(1)
+    # Retrieve command line arguments
+    mysql_username = sys.argv[1]
+    mysql_password = sys.argv[2]
+    database_name = sys.argv[3]
 
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
+    # Connect to MySQL server
+    db = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=mysql_username,
+        passwd=mysql_password,
+        db=database_name
+    )
 
-    list_states(username, password, database)
+    # Create a cursor object to execute SQL queries
+    cursor = db.cursor()
+
+    # Create and execute the SQL query
+    query = """
+        SELECT id, name
+        FROM states
+        WHERE name LIKE 'N%'
+        ORDER BY id ASC
+        LIMIT 2
+    """
+    cursor.execute(query)
+
+    # Fetch all the rows returned by the query
+    rows = cursor.fetchall()
+
+    # Display the results
+    for row in rows:
+        print(row)
+
+    # Close the cursor and the database connection
+    cursor.close()
+    db.close()
 
 
 if __name__ == "__main__":
