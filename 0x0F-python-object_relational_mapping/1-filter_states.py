@@ -32,8 +32,7 @@ def main():
     cursor = db.cursor()
 
     query = """
-        SELECT id, name
-        FROM states
+        SELECT id, name FROM states
         WHERE name LIKE 'N%'
         ORDER BY id ASC
     """
