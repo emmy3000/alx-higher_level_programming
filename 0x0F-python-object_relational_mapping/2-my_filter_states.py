@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-This script connects to a MySQL server and displays the first
-row in the states table where the name matches the provided argument.
+This script connects to a MySQL server and displays all rows
+in the states table where the name matches the provided argument.
 
 Usage:
     ./2-my_filter_states.py <mysql_username> \
@@ -42,15 +42,15 @@ def main():
         FROM states
         WHERE name = %s
         ORDER BY id ASC
-        LIMIT 1
     """
     cursor.execute(query, (state_name,))
 
-    # Fetch the first row returned by the query
-    row = cursor.fetchone()
+    # Fetch all the rows returned by the query
+    rows = cursor.fetchall()
 
-    # Display the result
-    print(row)
+    # Display the results
+    for row in rows:
+        print(row)
 
     # Close the cursor and the database connection
     cursor.close()
