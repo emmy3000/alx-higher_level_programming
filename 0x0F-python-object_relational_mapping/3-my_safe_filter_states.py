@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 This script connects to a MySQL server and displays
 all values in the states table where the name matches
