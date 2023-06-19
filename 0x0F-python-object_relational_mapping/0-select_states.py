@@ -24,7 +24,6 @@ def retrieve_states(mysql_user, mysql_password, database_name):
     Returns:
         list: List of tuples representing the retrieved states.
     """
-    # Connect to MySQL server
     db = MySQLdb.connect(
             host="localhost",
             port=3306,
@@ -33,16 +32,12 @@ def retrieve_states(mysql_user, mysql_password, database_name):
             db=database_name
             )
 
-    # Create a cursor object to interact with the database
     cursor = db.cursor()
 
-    # Execute the SQL query to get all states
     cursor.execute("SELECT * FROM states ORDER BY id ASC")
 
-    # Fetch all the rows returned by the query
     rows = cursor.fetchall()
 
-    # Filter out duplicate states using Python
     unique_states = []
     seen_states = set()
     for row in rows:
@@ -51,7 +46,6 @@ def retrieve_states(mysql_user, mysql_password, database_name):
             unique_states.append(row)
             seen_states.add(state)
 
-    # Close the cursor and database connection
     cursor.close()
     db.close()
 
@@ -66,10 +60,8 @@ def main():
     mysql_password = sys.argv[2]
     database_name = sys.argv[3]
 
-    # Retrieve unique states from the database
     states = retrieve_states(mysql_user, mysql_password, database_name)
 
-    # Print the states in the desired format.
     for state in states:
         print(state)
 
