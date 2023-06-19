@@ -8,19 +8,18 @@ import sys
 import MySQLdb
 
 
-if __name__ == "__main__":
+def list_states(username, password, database):
     """
-    Check if all required arguments are provided
+    Retrieve and print states starting with 'N' from the specified database.
+
+    Args:
+        username (str): The username for the MySQL server.
+        password (str): The password for the MySQL server.
+        database (str): The name of the database.
+
+    Returns:
+        None
     """
-    if len(sys.argv) != 4:
-        print("Usage: python3 list_states.py <username> <password> <database>")
-        sys.exit(1)
-
-    # Retrieve command-line arguments
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-
     try:
         """
         Connect to MySQL server
@@ -62,3 +61,23 @@ if __name__ == "__main__":
         # Close the database connection
         if connection:
             connection.close()
+
+
+def main():
+    """
+    Entry point of the script.
+    """
+    if len(sys.argv) != 4:
+        print("Usage: python3 list_states.py <username> <password> <database>")
+        sys.exit(1)
+
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+
+    # Call the function to list states
+    list_states(username, password, database)
+
+
+if __name__ == "__main__":
+    main()
