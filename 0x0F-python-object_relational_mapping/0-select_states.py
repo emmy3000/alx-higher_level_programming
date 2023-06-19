@@ -38,13 +38,8 @@ def retrieve_states(mysql_user, mysql_password, database_name):
 
     rows = cursor.fetchall()
 
-    unique_states = []
-    seen_states = set()
     for row in rows:
-        state = row[1]
-        if state not in seen_states:
-            unique_states.append(row)
-            seen_states.add(state)
+        print(row)
 
     cursor.close()
     db.close()
