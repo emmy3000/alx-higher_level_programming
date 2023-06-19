@@ -40,15 +40,24 @@ def main():
         FROM states
         WHERE name LIKE 'N%'
         ORDER BY id ASC
-        LIMIT 2
     """
     cursor.execute(query)
 
     # Fetch all the rows returned by the query
     rows = cursor.fetchall()
 
-    # Display the results
+    # Create a set to store unique values
+    unique_rows = set()
+
+    # Filter out duplicate rows
+    filtered_rows = []
     for row in rows:
+        if row not in unique_rows:
+            filtered_rows.append(row)
+            unique_rows.add(row)
+
+    # Display the results
+    for row in filtered_rows:
         print(row)
 
     # Close the cursor and the database connection
