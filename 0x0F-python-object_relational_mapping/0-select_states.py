@@ -12,14 +12,18 @@ import MySQLdb
 import sys
 
 
-if __name__ == "__main__":
+def retrieve_states(mysql_user, mysql_password, database_name):
     """
-    Get MySQL credentials from command-line arguments.
-    """
-    mysql_user = sys.argv[1]
-    mysql_password = sys.argv[2]
-    database_name = sys.argv[3]
+    Retrieve all unique states from the hbtn_0e_0_usa database.
 
+    Args:
+        mysql_user (str): MySQL username.
+        mysql_password (str): MySQL password.
+        database_name (str): Name of the database.
+
+    Returns:
+        list: List of tuples representing the retrieved states.
+    """
     # Connect to MySQL server
     db = MySQLdb.connect(
             host="localhost",
@@ -38,10 +42,36 @@ if __name__ == "__main__":
     # Fetch all the rows returned by the query
     rows = cursor.fetchall()
 
-    # Print the states in the desired format.
+    # Filter out duplicate states using Python
+    unique_states = []
+    seen_states = set()
     for row in rows:
-        print(row)
+        state = row[1]
+        if state not in seen_states:
+            unique_states.append(row)
+            seen_states.add(state)
 
     # Close the cursor and database connection
     cursor.close()
     db.close()
+
+    return unique_states
+
+def main():
+    """
+    Entry point of the script.
+    """
+    mysql_user = sys.argv[1]
+    mysql_password = sys.argv[2]
+    database_name = sys.argv[3]
+
+    # Retrieve unique states from the database
+    states = retrieve_states(mysql_user, mysql_password, database_name)
+
+    # Print the states in the desired format.
+    for state in states:
+        print(state)
+
+
+if __name__ == "__main__":
+    main()
