@@ -1,73 +1,44 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 Module: 2-my_filter_states
-Description: Connects to a MySQL server and retrieves states from a database
-             based on the provided state name argument.
+Description: Retrieves and displays all matching states from the states table
+             in the hbtn_0e_0_usa database.
+Usage:     ./2-my_filter_states.py <mysql_username> \
+                                <mysql_password> \
+                                <database_name> \
+                                <state_name_searched>
 """
-
 import sys
 import MySQLdb
 
-
-def filter_states(username, password, database, state_name):
-    """
-    Connects to a MySQL server and retrieves states from the specified database
-    where the name matches the provided state_name argument.
-
-    Args:
-        username (str): The username for the MySQL server.
-        password (str): The password for the MySQL server.
-        database (str): The name of the database.
-        state_name (str): The name of the state to search for.
-
-    Returns:
-        None
-    """
-    connection = MySQLdb.connect(
-        host="localhost",
-        port=3306,
-        user=username,
-        passwd=password,
-        db=database
-    )
-
-    cursor = connection.cursor()
-
-    sql = """
-        SELECT id, name
-        FROM states
-        WHERE name = '{}'
-        ORDER BY id ASC
-        LIMIT 1
-    """.format(state_name)
-
-    cursor.execute(sql)
-
-    rows = cursor.fetchall()
-
-    for row in rows:
-        print(row)
-
-    connection.close()
-
-
-def main():
-    """
-    Entry point of the script.
-    Parses command-line arguments and calls the filter_states function.
-    """
-    if len(sys.argv) != 5:
-        print("Usage: python3 2-my_filter_states.py <username> <password> "
-              "<database> <state_name>")
-        sys.exit(1)
-
+if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
     state_name = sys.argv[4]
 
-    filter_states(username, password, database, state_name)
+    db = MySQLdb.connect(
+        user=username,
+        port=3306,
+        host="localhost",
+        passwd=password,
+        db=database
+    )
+    cursor = db.cursor()
 
+    query = """
+        SELECT *
+        FROM states
+        WHERE name LIKE '{:s}'
+        ORDER BY id ASC
+    """.format(state_name)
 
-if __name__ == "__main__":
-    main()
+    cursor.execute(query)
+    matching_states = cursor.fetchall()
+
+    for state in matching_states:
+        if state[1] == state_name:
+            print(state)
+
+    cursor.close()
+    db.close()
