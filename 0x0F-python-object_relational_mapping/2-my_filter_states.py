@@ -40,7 +40,7 @@ def main():
     query = """
         SELECT *
         FROM states
-        WHERE name = %s
+        WHERE name LIKE %s
         ORDER BY id ASC
     """
     cursor.execute(query, (state_name,))
