@@ -1,8 +1,3 @@
 #!/bin/bash
-################################################################################
-# Script: 0-body_size.sh
-# Description: This script sends a HTTP request to a specific URL using curl and
-#		displays the size of the response body in bytes.
-################################################################################
-
+# Script retrieves the size in bytes of a HTTP response by passing a URL as arg
 curl -s "$1" | wc -c
