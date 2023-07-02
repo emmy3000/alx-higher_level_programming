@@ -5,6 +5,4 @@
 #		displays the size of the response body in bytes.
 ################################################################################
 
-url="$1"
-
-curl -s "$url" | wc -c
+curl -s "$1" | wc -c
