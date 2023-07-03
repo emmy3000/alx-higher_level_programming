@@ -5,20 +5,21 @@ from a request to a given URL.
 
 Usage: ./1-hbtn_header.py <URL>
 """
+from urllib.request import Request, urlopen
+from sys import argv
 
-import sys
-import urllib.request
+
+def main():
+    """
+    Displays the value of the X-Request-Id header variable
+    from a request to a given URL.
+    """
+    url = argv[1]
+    req = Request(url)
+    with urlopen(req) as res:
+        x_request_id = res.info().get("x-request-id")
+        print(x_request_id)
 
 
 if __name__ == "__main__":
-    # Get the URL from command-line argument
-    url = sys.argv[1]
-
-    # Send a request to the URL
-    request = urllib.request.Request(url)
-    with urllib.request.urlopen(request) as response:
-        # Retrieve the value of the X-Request-Id header
-        x_request_id = dict(response.headers).get("X-Request-Id")
-
-        # Display the X-Request-Id value
-        print(x_request_id)
+    main()
