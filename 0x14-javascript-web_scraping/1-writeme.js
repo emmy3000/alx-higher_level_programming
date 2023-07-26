@@ -1,9 +1,9 @@
 #!/usr/bin/node
-const fs = require('fs');
 /**
  * Write a string to a file specified by the file path.
  * If an error occurs during writing, the error message will be printed.
  */
+const fs = require('fs');
 const filePath = process.argv[2];
 const contentToWrite = process.argv[3];
 
