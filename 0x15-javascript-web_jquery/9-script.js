@@ -1,3 +1,4 @@
+#!/usr/bin/node
 /**
  * Fetches translation of "hello" from a specific URL and displays it in the DIV#hello tag.
  */
